@@ -1,6 +1,11 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Vehicle {
+    private String[] carColors = {"black", "blue", "green", "red", "purple", "mauve", "yellow", "rainbow!!!", "brown"};
+    Random r = new Random();
     private String name;
     private String color;
     private int speed;
@@ -17,18 +22,26 @@ public class Vehicle {
     }
 
     public void newSpeed() {
-        speed = 90;
-        System.out.println("The " + color + " " + name + "'s speed has reached " + speed + "!");
+        int increment = r.nextInt(100) + 1;
+        speed += increment;
+
+        System.out.println("The " + color + " " + name + " has increased it's speed by " + increment + " mph! Its heading down the highway at " + speed + " mph!");
     }
 
     public void crash() {
         speed = 0;
-        System.out.println("Oh no! The " + name + " crashed into a wall!" + " Now it's speed is " + speed);
+        System.out.println("Oh no! The " + name + " crashed into a wall!" + " Now it's speed is " + speed + ".");
     }
 
     public void paint() {
-        System.out.print("The " + color + name + " decided to get repainted!");
-        color = "black";
+        System.out.print("The " + color + " " + name + " decided to get repainted!");
+        String color2;
+
+        do {
+            color2 = carColors[r.nextInt(carColors.length)];
+        } while (color.equalsIgnoreCase(color2));
+
+        color = color2;
         System.out.println(" Now it's a sick " + color + " " + name + "!");
     }
 
