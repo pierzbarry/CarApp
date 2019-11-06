@@ -29,7 +29,7 @@ public class Vehicle {
     public void paint() {
         System.out.print("The " + color + name + " decided to get repainted!");
         color = "black";
-        System.out.println("Now it's a sick " + color + " " + name + "!");
+        System.out.println(" Now it's a sick " + color + " " + name + "!");
     }
 
     public Vehicle(String name, String color, int speed) {
